@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="按角色、服装和年龄挑选图片，查看完整形象并下载原图。">
+  <title>个人资产库</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="brand"><span class="brand-mark" aria-hidden="true">▦</span><span>个人资产库</span></div>
+    <div class="nav-label">资产分类</div>
+    <nav id="categories" aria-label="资产分类"></nav>
+    <div class="side-foot"><span class="device-mark" aria-hidden="true">▣</span><div>共享图库<span id="library-total">正在读取…</span></div></div>
+  </aside>
+
+  <main class="workspace">
+    <header class="topbar"><span>共享图库</span><time id="updated-at" class="updated-time">正在读取更新时间…</time></header>
+    <section class="library-header">
+      <div><div class="eyebrow">ASSET LIBRARY</div><h1 id="category-title">男角色</h1><p id="category-count" aria-live="polite">正在读取资产…</p></div>
+      <span class="local-tag">浏览与下载</span>
+    </section>
+    <div class="filter-bar"><div id="ages" class="age-tabs" aria-label="年龄分类"></div><span class="format-note">大头照 · 竖版形象图</span></div>
+    <div id="page-error" class="error-box" role="alert" hidden></div>
+    <section id="asset-grid" class="asset-grid" aria-label="资产图片"></section>
+    <section id="empty" class="empty-state" hidden><div class="empty-mark" aria-hidden="true">▧</div><h2>这里还没有图片</h2><p id="empty-copy">这个分类暂时没有图片。</p></section>
+    <div class="list-foot"><span id="list-progress" aria-live="polite"></span><button id="load-more" class="secondary" hidden>加载更多</button></div>
+  </main>
+
+  <dialog id="preview-dialog" class="preview-dialog" aria-labelledby="preview-name">
+    <button id="close-preview" class="dialog-close" aria-label="关闭预览">×</button>
+    <div class="preview-image-wrap"><img id="preview-image" alt=""></div>
+    <div class="preview-info">
+      <div class="eyebrow">资产详情</div>
+      <h2 id="preview-name"></h2>
+      <div id="preview-badges" class="detail-badges"></div>
+      <dl><div><dt>图片尺寸</dt><dd id="preview-size"></dd></div><div><dt>资产分类</dt><dd id="preview-category"></dd></div></dl>
+      <p id="preview-age-note" class="small-note"></p>
+      <a id="download-original" class="primary" download>下载原图</a>
+      <a id="open-original" class="secondary" target="_blank" rel="noopener">打开完整图片</a>
+    </div>
+  </dialog>
+</body>
+</html>
